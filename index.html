@@ -9,57 +9,159 @@
 </head>
 <body>
 
-  <header>
-    <h1>Web Gerenciamento de Tarefas Disciplinares</h1>
+  <div class="tela-login" id="telaLogin">
 
-    <div class="formulario">
+    <div class="login-box">
 
-      <input type="text" id="titulo" placeholder="Título da atividade">
+      <h1>Web Gerenciamento de Tarefas Disciplinares</h1>
 
-      <textarea id="descricao" placeholder="Descrição da atividade"></textarea>
+      <input type="text"
+        id="usuario"
+        placeholder="Digite seu nome">
 
-      <input type="date" id="prazo">
+      <select id="perfil">
 
-      <select id="responsavel">
-        <option value="Aluno">Aluno</option>
-        <option value="Grupo">Grupo</option>
+        <option value="Professor">
+          Professor
+        </option>
+
+        <option value="Aluno">
+          Aluno
+        </option>
+
       </select>
 
-      <button onclick="criarCard()">
-        Cadastrar Atividade
+      <button type="button"
+        onclick="entrarSistema()">
+
+        Entrar
+
       </button>
 
     </div>
-  </header>
 
-  <main class="board">
+  </div>
 
-    <section class="column" id="todo"
-      ondrop="drop(event)"
-      ondragover="allowDrop(event)">
+  <div id="sistema" style="display: none;">
 
-      <h2>A Fazer</h2>
+    <header>
 
-    </section>
+      <h1>
+        Web Gerenciamento de Tarefas Disciplinares
+      </h1>
 
-    <section class="column" id="doing"
-      ondrop="drop(event)"
-      ondragover="allowDrop(event)">
+      <section class="disciplina-box">
 
-      <h2>Em Andamento</h2>
+        <input type="text"
+          id="disciplina"
+          placeholder="Nome da disciplina">
 
-    </section>
+        <button onclick="criarDisciplina()">
+          Criar Disciplina
+        </button>
 
-    <section class="column" id="done"
-      ondrop="drop(event)"
-      ondragover="allowDrop(event)">
+        <select id="filtroStatus"
+          onchange="filtrarCards()">
 
-      <h2>Concluído</h2>
+          <option value="todos">
+            Todas as tarefas
+          </option>
 
-    </section>
+          <option value="pendente">
+            Pendentes
+          </option>
 
-  </main>
+          <option value="concluido">
+            Concluídas
+          </option>
 
-  <script src="script.js"></script>
+        </select>
+
+      </section>
+
+      <div class="formulario"
+        id="areaProfessor">
+
+        <input type="text"
+          id="titulo"
+          placeholder="Título da atividade">
+
+        <textarea
+          id="descricao"
+          placeholder="Descrição da atividade"></textarea>
+
+        <input type="date"
+          id="prazo">
+
+        <input type="time"
+          id="horario">
+
+        <input type="text"
+          id="aluno"
+          placeholder="Aluno responsável">
+
+        <select id="disciplinaSelect">
+
+          <option value="">
+            Selecione a disciplina
+          </option>
+
+        </select>
+
+        <select id="responsavel">
+
+          <option value="Aluno">
+            Aluno
+          </option>
+
+          <option value="Grupo">
+            Grupo
+          </option>
+
+        </select>
+
+        <button onclick="criarCard()">
+          Cadastrar Atividade
+        </button>
+
+      </div>
+
+    </header>
+
+    <main class="board">
+
+      <section class="column"
+        id="todo"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)">
+
+        <h2>A Fazer</h2>
+
+      </section>
+
+      <section class="column"
+        id="doing"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)">
+
+        <h2>Em Andamento</h2>
+
+      </section>
+
+      <section class="column"
+        id="done"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)">
+
+        <h2>Concluído</h2>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script defer src="script.js"></script>
+
 </body>
 </html>
