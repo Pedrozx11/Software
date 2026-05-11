@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Gerenciamento de Tarefas Disciplinares</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Web Gerenciamento de Tarefas Disciplinares</h1>
+
+    <div class="formulario">
+
+      <input type="text" id="titulo" placeholder="Título da atividade">
+
+      <textarea id="descricao" placeholder="Descrição da atividade"></textarea>
+
+      <input type="date" id="prazo">
+
+      <select id="responsavel">
+        <option value="Aluno">Aluno</option>
+        <option value="Grupo">Grupo</option>
+      </select>
+
+      <button onclick="criarCard()">
+        Cadastrar Atividade
+      </button>
+
+    </div>
+  </header>
+
+  <main class="board">
+
+    <section class="column" id="todo"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)">
+
+      <h2>A Fazer</h2>
+
+    </section>
+
+    <section class="column" id="doing"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)">
+
+      <h2>Em Andamento</h2>
+
+    </section>
+
+    <section class="column" id="done"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)">
+
+      <h2>Concluído</h2>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
